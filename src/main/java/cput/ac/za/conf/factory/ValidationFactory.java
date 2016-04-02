@@ -10,5 +10,5 @@ import java.util.Map;
 public interface ValidationFactory
 {
     public Validation createValidation(String studentNumber, double avg,
-                                       Map<String,String> addition);
+                                       Map<Integer,Integer> addition);
 }

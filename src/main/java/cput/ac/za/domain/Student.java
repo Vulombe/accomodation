@@ -10,12 +10,13 @@ public class Student implements Serializable
 {
 
     private Long studentID;
+    private PersonDetails personDetails;
     private String levelOfStudy;
     private Contacts contacts;
     private Address address;
     private StudyPlace studyPlace;
     private List<Payment> payments;
-    private List<Room> rooms;
+    private Room room;
 
     private Student(){}
     public Student(Builder builder)
@@ -25,7 +26,7 @@ public class Student implements Serializable
         levelOfStudy = builder.levelOfStudy;
         address = builder.address;
         payments = builder.payments;
-        rooms = builder.rooms;
+        room = builder.room;
         studyPlace = builder.studyPlace;
     }
     public Long getStudentID() {
@@ -44,29 +45,38 @@ public class Student implements Serializable
     public List<Payment> getPayments() {
         return payments;
     }
-    public List<Room> getRooms() {
-        return rooms;
+    public Room getRoom() {
+        return room;
     }
 
     public StudyPlace getStudyPlace() {
         return studyPlace;
     }
 
+    public PersonDetails getPersonDetails() {
+        return personDetails;
+    }
+
     public static class Builder
     {
         private Long studentID;
+        private PersonDetails personDetails;
         private String levelOfStudy;
         private Address address;
         private Contacts contacts;
         private StudyPlace studyPlace;
         private List<Payment> payments;
-        private List<Room> rooms;
+        private Room room;
 
         public Builder studentID(Long value){
             this.studentID = value;
             return this;
         }
 
+        public Builder personDetails(PersonDetails value){
+            this.personDetails = value;
+            return this;
+        }
         public Builder levelOfStudy(String value){
             this.levelOfStudy = value;
             return this;
@@ -86,9 +96,9 @@ public class Student implements Serializable
             this.payments = value;
             return this;
         }
-        public Builder rooms(List<Room> value)
+        public Builder room(Room value)
         {
-            this.rooms = value;
+            this.room = value;
             return this;
         }
         public Builder studyPlace(StudyPlace value)
@@ -99,12 +109,14 @@ public class Student implements Serializable
         public Builder copy(Student value){
 
             this.studentID = value.getStudentID();
+            this.personDetails = value.getPersonDetails();
             this.levelOfStudy = value.getLevelOfStudy();
             this.address = value.getAddress();
             this.contacts = value.getContacts();
             this.studyPlace = value.getStudyPlace();
             this.payments = value.getPayments();
-            this.rooms = value.getRooms();
+            this.room = value.getRoom();
+
             return this;
         }
         public Student build(){

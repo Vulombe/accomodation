@@ -2,6 +2,7 @@ package cput.ac.za.conf.factory;
 
 import cput.ac.za.domain.*;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -9,6 +10,6 @@ import java.util.Map;
  */
 public interface AdministratorFactory
 {
-    public Administrator createAdmin(Map<Contacts,Location> addressRelated,User user,
-                                     Validation validate);
+    public Administrator createAdmin(User user,Validation validate, List<Location> locations,
+                                     Contacts contacts);
 }

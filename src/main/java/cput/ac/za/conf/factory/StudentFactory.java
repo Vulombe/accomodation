@@ -10,8 +10,8 @@ import java.util.Map;
  */
 public interface StudentFactory
 {
-    public Student createStudent(Map<Contacts,Address> AddressDetails,
-                                 Map<String,StudyPlace> studyDetails,
-                                 List<Payment> payments,
-                                 List<Room> rooms);
+
+    public  Student createStudent(String level, StudyPlace studyPlace,PersonDetails personDetails,
+                                  Contacts contacts, Address address, List<Payment> payments,
+                                        Room room);
 }
