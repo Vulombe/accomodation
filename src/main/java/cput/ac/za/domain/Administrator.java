@@ -13,6 +13,7 @@ public class Administrator implements Serializable
     private List<Location> locations;
     private User user;
     private Validation validate;
+    private PersonDetails personDetails;
 
     private Administrator(){}
     public Administrator(Builder builder)
@@ -22,6 +23,7 @@ public class Administrator implements Serializable
         locations = builder.locations;
         user = builder.user;
         validate = builder.validate;
+        personDetails = builder.personDetails;
     }
     public Long getEmpID() {
         return empID;
@@ -43,6 +45,10 @@ public class Administrator implements Serializable
         return validate;
     }
 
+    public PersonDetails getPersonDetails() {
+        return personDetails;
+    }
+
     public static class Builder
     {
         private Long empID;
@@ -50,6 +56,7 @@ public class Administrator implements Serializable
         private List<Location> locations;
         private User user;
         private Validation validate;
+        private PersonDetails personDetails;
 
         public Builder empID(Long value)
         {
@@ -76,6 +83,12 @@ public class Administrator implements Serializable
             this.validate = value;
             return this;
         }
+
+        public Builder personDetails(PersonDetails value)
+        {
+            this.personDetails = value;
+            return this;
+        }
         public Builder copy(Administrator value)
         {
             this.empID = value.getEmpID();
@@ -83,6 +96,7 @@ public class Administrator implements Serializable
             this.locations = value.getLocations();
             this.user = value.getUser();
             this.validate = value.getValidate();
+            this.personDetails = value.getPersonDetails();
             return this;
         }
         public Administrator build(){return new Administrator(this);}

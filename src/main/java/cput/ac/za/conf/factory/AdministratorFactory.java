@@ -10,6 +10,7 @@ import java.util.Map;
  */
 public interface AdministratorFactory
 {
-    public Administrator createAdmin(User user,Validation validate, List<Location> locations,
+    public Administrator createAdmin(PersonDetails personDetails,User user,Validation validate, List<Location> locations,
                                      Contacts contacts);
+
 }

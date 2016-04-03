@@ -21,10 +21,11 @@ public class AdministratorFactoryImpl implements AdministratorFactory
         return administratorFactory;
     }
     @Override
-    public Administrator createAdmin(User user,Validation validate, List<Location> locations,
+    public Administrator createAdmin(PersonDetails personDetails,User user,Validation validate, List<Location> locations,
                                       Contacts contacts)
     {
-        Administrator administrator = new Administrator.Builder().contacts(contacts)
+        Administrator administrator = new Administrator.Builder().personDetails(personDetails)
+                .contacts(contacts)
                                             .locations(locations)
                                             .user(user)
                                             .validate(validate)

@@ -11,7 +11,6 @@ public class PersonDetails implements Serializable
     private String lName;
     private String fName;
     private String gender;
-    private String levelOfStudy;
     private Date dob;
 
 
@@ -22,7 +21,6 @@ public class PersonDetails implements Serializable
         lName = builder.lName;
         fName = builder.fName;
         gender = builder.gender;
-        levelOfStudy = builder.levelOfStudy;
         dob = builder.dob;
     }
 
@@ -36,9 +34,7 @@ public class PersonDetails implements Serializable
         return gender;
     }
 
-    public String getLevelOfStudy() {
-        return levelOfStudy;
-    }
+
     public Date getDob() {
         return dob;
     }
@@ -47,7 +43,6 @@ public class PersonDetails implements Serializable
         private String lName;
         private String fName;
         private String gender;
-        private String levelOfStudy;
         private Date dob;
 
         public Builder lName(String value){
@@ -62,10 +57,7 @@ public class PersonDetails implements Serializable
             this.gender = value;
             return this;
         }
-        public Builder levelOfStudy(String value){
-            this.levelOfStudy = value;
-            return this;
-        }
+
         public Builder dob(Date value){
             this.dob = value;
             return this;
@@ -75,7 +67,6 @@ public class PersonDetails implements Serializable
             this.fName = value.getfName();
             this.lName = value.getlName();
             this.gender = value.getGender();
-            this.levelOfStudy = value.getLevelOfStudy();
             this.dob = value.getDob();
             return this;
         }

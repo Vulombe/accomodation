@@ -21,13 +21,11 @@ public class ValidationFactoryImpl implements ValidationFactory
     }
 
     @Override
-    public Validation createValidation(String studentNumber, double avg,
-                                       Map<Integer,Integer> addition)
+    public Validation createValidation(double avg,int sum, int numOfSubjects)
     {
         Validation validation = new Validation.Builder()
-                                              .studentID(studentNumber)
-                                              .subjectNumber(addition.get("subjectNumber"))
-                                              .sumOfSubjects(addition.get("SumOfSubjects"))
+                                              .subjectNumber(numOfSubjects)
+                                              .sumOfSubjects(sum)
                                               .avgPerc(avg).build();
         return validation;
     }

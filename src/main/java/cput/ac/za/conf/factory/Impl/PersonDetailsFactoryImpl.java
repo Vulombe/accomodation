@@ -15,21 +15,20 @@ public class PersonDetailsFactoryImpl implements PersonDetailsFactory
 
     private PersonDetailsFactoryImpl() {
     }
-    private PersonDetailsFactoryImpl getInstance(){
+    public static PersonDetailsFactoryImpl getInstance(){
         if(personDetailsFactory ==null)
             personDetailsFactory = new PersonDetailsFactoryImpl();
         return personDetailsFactory;
     }
     @Override
-    public PersonDetails createPersonDetails(Map<String,String> names,Map<String,String> details,
+    public PersonDetails createPersonDetails(Map<String,String> names,String gender,
                                                     Date dob)
     {
         PersonDetails personDetails = new PersonDetails.Builder()
                 .fName(names.get("fName"))
                 .lName(names.get("lName"))
-                .gender(details.get("gender"))
+                .gender(gender)
                 .dob(dob)
-                .levelOfStudy(details.get("levelOfStudy"))
                 .build();
         return personDetails;
 
