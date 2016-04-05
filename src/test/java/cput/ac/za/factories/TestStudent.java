@@ -17,22 +17,20 @@ public class TestStudent
     private ContactsFactory contactsFactory;
     private PersonDetailsFactory personDetailsFactory;
     private AddressFactory addressFactory;
-    private StudyPlaceFactory studyPlaceFactory;
     private StudentFactory studentFactory;
     private Contacts contacts;
     private Room room;
     private List<Payment> payments;
     private PersonDetails personDetails;
-    private StudyPlace studyPlace;
     private Address address;
     private Student student;
+    private String validate;
 
     @BeforeMethod
     public void setUpStudent() throws Exception {
         contactsFactory = ContactsFactoryImpl.getInstance();
         personDetailsFactory = PersonDetailsFactoryImpl.getInstance();
         addressFactory = AddressFactoryImpl.getInstance();
-        studyPlaceFactory = StudyPlaceFactoryImpl.getInstance();
         studentFactory = StudentFactoryImpl.getInstance();
     }
 
@@ -43,11 +41,13 @@ public class TestStudent
         names.put("Themba","Makhubele");
         String gender = "Male";
         addressDetails.put("Limpopo","Elim");
-        studyPlace = studyPlaceFactory.createStudyPlace("University Of Limpopo");
+        validate = ValidationFactory.getAverage(200,6);
+        System.out.println(validate);
+
         address = addressFactory.createAddress(addressDetails, "Denver", "0826");
         contacts = contactsFactory.createContacts("Thembani@gem.com", "0821147");
         personDetails = personDetailsFactory.createPersonDetails(names,gender,new Date());
-        student = studentFactory.createStudent("3rd year",studyPlace,personDetails, contacts,address,payments,room);
+        student = studentFactory.createStudent("3rd year",personDetails, contacts,address,payments,room,validate);
 
         Assert.assertEquals(student.getLevelOfStudy(),"3rd year");
     }

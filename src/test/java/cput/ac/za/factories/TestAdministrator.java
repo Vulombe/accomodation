@@ -15,12 +15,9 @@ import java.util.*;
 public class TestAdministrator
 {
 
-    private ValidationFactory validateFactory;
     private ContactsFactory contactsFactory;
     private PersonDetailsFactory personDetailsFactory;
     private AdministratorFactory administratorFactory;
-    private User user;
-    private Validation validate;
     private Contacts contacts;
     private PersonDetails personDetails;
     private Administrator administrator;
@@ -29,7 +26,7 @@ public class TestAdministrator
     @BeforeMethod
     public void setUpAdministrator() throws Exception
     {
-        validateFactory = ValidationFactoryImpl.getInstance();
+
         contactsFactory = ContactsFactoryImpl.getInstance();
         personDetailsFactory = PersonDetailsFactoryImpl.getInstance();
         administratorFactory = AdministratorFactoryImpl.getInstance();
@@ -46,10 +43,9 @@ public class TestAdministrator
         names.put("Vulombe","Makhubele");
 
 
-        validate = validateFactory.createValidation(avg,numberOfSub,sum);
         contacts = contactsFactory.createContacts("vma@gg.com","05422147");
         personDetails = personDetailsFactory.createPersonDetails(names,gender,new Date());
-        administrator = administratorFactory.createAdmin(personDetails,user,validate,location,contacts);
+        administrator = administratorFactory.createAdmin(personDetails,location,contacts);
 
         Assert.assertEquals(contacts.getCellNumber(),"05422147");
     }

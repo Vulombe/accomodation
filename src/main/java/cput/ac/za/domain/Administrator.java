@@ -11,8 +11,6 @@ public class Administrator implements Serializable
     private Long empID;
     private Contacts contacts;
     private List<Location> locations;
-    private User user;
-    private Validation validate;
     private PersonDetails personDetails;
 
     private Administrator(){}
@@ -21,8 +19,6 @@ public class Administrator implements Serializable
         empID = builder.empID;
         contacts = builder.contacts;
         locations = builder.locations;
-        user = builder.user;
-        validate = builder.validate;
         personDetails = builder.personDetails;
     }
     public Long getEmpID() {
@@ -37,14 +33,6 @@ public class Administrator implements Serializable
         return locations;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public Validation getValidate() {
-        return validate;
-    }
-
     public PersonDetails getPersonDetails() {
         return personDetails;
     }
@@ -54,8 +42,6 @@ public class Administrator implements Serializable
         private Long empID;
         private Contacts contacts;
         private List<Location> locations;
-        private User user;
-        private Validation validate;
         private PersonDetails personDetails;
 
         public Builder empID(Long value)
@@ -73,16 +59,6 @@ public class Administrator implements Serializable
             this.locations = value;
             return this;
         }
-        public Builder user(User value)
-        {
-            this.user = value;
-            return this;
-        }
-        public Builder validate(Validation value)
-        {
-            this.validate = value;
-            return this;
-        }
 
         public Builder personDetails(PersonDetails value)
         {
@@ -94,8 +70,6 @@ public class Administrator implements Serializable
             this.empID = value.getEmpID();
             this.contacts = value.getContacts();
             this.locations = value.getLocations();
-            this.user = value.getUser();
-            this.validate = value.getValidate();
             this.personDetails = value.getPersonDetails();
             return this;
         }

@@ -21,17 +21,17 @@ public class StudentFactoryImpl implements StudentFactory
     }
 
     @Override
-    public  Student createStudent(String level, StudyPlace studyPlace,PersonDetails personDetails,
+    public  Student createStudent(String level, PersonDetails personDetails,
                                   Contacts contacts, Address address, List<Payment> payments,
-                                  Room room)
+                                  Room room ,String validate)
     {
         Student student = new Student.Builder().personDetails(personDetails)
-                                    .studyPlace(studyPlace)
                                     .levelOfStudy(level)
                                     .contacts(contacts)
                                     .address(address)
                                     .room(room)
                                     .payments(payments)
+                                    .validate(validate)
                                     .build();
         return student;
     }

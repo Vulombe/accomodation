@@ -14,7 +14,7 @@ public class Student implements Serializable
     private String levelOfStudy;
     private Contacts contacts;
     private Address address;
-    private StudyPlace studyPlace;
+    private String validate;
     private List<Payment> payments;
     private Room room;
 
@@ -26,8 +26,9 @@ public class Student implements Serializable
         levelOfStudy = builder.levelOfStudy;
         address = builder.address;
         payments = builder.payments;
+        validate = builder.validate;
         room = builder.room;
-        studyPlace = builder.studyPlace;
+
     }
     public Long getStudentID() {
         return studentID;
@@ -48,10 +49,10 @@ public class Student implements Serializable
     public Room getRoom() {
         return room;
     }
-
-    public StudyPlace getStudyPlace() {
-        return studyPlace;
+    public String getValidate() {
+        return validate;
     }
+
 
     public PersonDetails getPersonDetails() {
         return personDetails;
@@ -64,9 +65,9 @@ public class Student implements Serializable
         private String levelOfStudy;
         private Address address;
         private Contacts contacts;
-        private StudyPlace studyPlace;
         private List<Payment> payments;
         private Room room;
+        private String validate;
 
         public Builder studentID(Long value){
             this.studentID = value;
@@ -96,16 +97,17 @@ public class Student implements Serializable
             this.payments = value;
             return this;
         }
+        public Builder validate(String value)
+        {
+            this.validate = value;
+            return this;
+        }
         public Builder room(Room value)
         {
             this.room = value;
             return this;
         }
-        public Builder studyPlace(StudyPlace value)
-        {
-            this.studyPlace = value;
-            return this;
-        }
+
         public Builder copy(Student value){
 
             this.studentID = value.getStudentID();
@@ -113,9 +115,9 @@ public class Student implements Serializable
             this.levelOfStudy = value.getLevelOfStudy();
             this.address = value.getAddress();
             this.contacts = value.getContacts();
-            this.studyPlace = value.getStudyPlace();
             this.payments = value.getPayments();
             this.room = value.getRoom();
+            this.validate = value.getValidate();
 
             return this;
         }
