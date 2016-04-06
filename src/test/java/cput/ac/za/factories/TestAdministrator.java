@@ -14,7 +14,6 @@ import java.util.*;
  */
 public class TestAdministrator
 {
-
     private ContactsFactory contactsFactory;
     private PersonDetailsFactory personDetailsFactory;
     private AdministratorFactory administratorFactory;
@@ -26,7 +25,6 @@ public class TestAdministrator
     @BeforeMethod
     public void setUpAdministrator() throws Exception
     {
-
         contactsFactory = ContactsFactoryImpl.getInstance();
         personDetailsFactory = PersonDetailsFactoryImpl.getInstance();
         administratorFactory = AdministratorFactoryImpl.getInstance();
@@ -37,11 +35,7 @@ public class TestAdministrator
     {
         Map<String,String> names = new HashMap<String, String>();
         String gender = "Male";
-        int sum = 400;
-        int numberOfSub = 12;
-        double avg = sum/numberOfSub;
         names.put("Vulombe","Makhubele");
-
 
         contacts = contactsFactory.createContacts("vma@gg.com","05422147");
         personDetails = personDetailsFactory.createPersonDetails(names,gender,new Date());
@@ -52,8 +46,7 @@ public class TestAdministrator
 
     @Test
     public void testUpdateAdministrator() throws Exception {
-      Contacts contactsUpdate = new Contacts.Builder().copy(contacts).cellNumber("087444").build();
-
+        Contacts contactsUpdate = new Contacts.Builder().copy(contacts).cellNumber("087444").build();
         Administrator updateAdministrator = new Administrator.Builder().copy(administrator)
                                                 .contacts(contactsUpdate).build();
         Assert.assertEquals(contactsUpdate.getCellNumber(),"087444");

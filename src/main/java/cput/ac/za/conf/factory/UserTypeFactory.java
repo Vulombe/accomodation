@@ -20,7 +20,7 @@ public class UserTypeFactory {
     }
 
     public User userType(String userType) {
-        if ("Lecturer".equalsIgnoreCase(userType)) {
+        if ("Administrator".equalsIgnoreCase(userType)) {
             return new UserAsAdministrator();
         } else {
             return new UserAsStudent();
