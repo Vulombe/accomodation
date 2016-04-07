@@ -27,5 +27,5 @@ the Student accommodation application allocates rooms to student depending on th
 17.	AverageHandlerB
 18.	AverageHandlerC
 
-+![Domain Model](/umlDiagrams.png)
++![Domain Model](/umlDiagrams.jpg)
 
