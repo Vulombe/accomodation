@@ -11,7 +11,7 @@ import java.util.Map;
 public interface StudentFactory
 {
 
-    public  Student createStudent(String level, PersonDetails personDetails,
-                                  Contacts contacts, Address address, List<Payment> payments,
-                                        Room room,String validate);
+    public  Student createStudent( String validate, PersonDetails personDetails, Address address,
+                                   List<Payment> payments, Room room);
+
 }

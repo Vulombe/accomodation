@@ -34,11 +34,12 @@ public class TestAdministrator
     public void testCreateAdministrator() throws Exception
     {
         Map<String,String> names = new HashMap<String, String>();
-        String gender = "Male";
+        Map<String,String> details = new HashMap<String, String>();
+        details.put("Male","vmakhubs@gmail.com");
         names.put("Vulombe","Makhubele");
 
         contacts = contactsFactory.createContacts("vma@gg.com","05422147");
-        personDetails = personDetailsFactory.createPersonDetails(names,gender,new Date());
+        personDetails = personDetailsFactory.createPersonDetails(names,details,new Date());
         administrator = administratorFactory.createAdmin(personDetails,location,contacts);
 
         Assert.assertEquals(contacts.getCellNumber(),"05422147");

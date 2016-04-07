@@ -10,6 +10,6 @@ import java.util.Map;
  */
 public interface PersonDetailsFactory
 {
-    public PersonDetails createPersonDetails(Map<String,String> names,String gender,
+    public PersonDetails createPersonDetails(Map<String,String> names,Map<String,String> details,
                                              Date dob);
 }

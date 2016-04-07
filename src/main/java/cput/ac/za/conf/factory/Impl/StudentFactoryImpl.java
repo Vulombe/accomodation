@@ -4,6 +4,7 @@ import cput.ac.za.conf.factory.StudentFactory;
 import cput.ac.za.domain.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by student on 2016/04/02.
@@ -21,13 +22,10 @@ public class StudentFactoryImpl implements StudentFactory
     }
 
     @Override
-    public  Student createStudent(String level, PersonDetails personDetails,
-                                  Contacts contacts, Address address, List<Payment> payments,
-                                  Room room ,String validate)
+    public  Student createStudent( String validate, PersonDetails personDetails, Address address,
+                                  List<Payment> payments, Room room)
     {
         Student student = new Student.Builder().personDetails(personDetails)
-                                    .levelOfStudy(level)
-                                    .contacts(contacts)
                                     .address(address)
                                     .room(room)
                                     .payments(payments)

@@ -14,11 +14,9 @@ import java.util.*;
  */
 public class TestStudent
 {
-    private ContactsFactory contactsFactory;
     private PersonDetailsFactory personDetailsFactory;
     private AddressFactory addressFactory;
     private StudentFactory studentFactory;
-    private Contacts contacts;
     private Room room;
     private List<Payment> payments;
     private PersonDetails personDetails;
@@ -28,7 +26,6 @@ public class TestStudent
 
     @BeforeMethod
     public void setUpStudent() throws Exception {
-        contactsFactory = ContactsFactoryImpl.getInstance();
         personDetailsFactory = PersonDetailsFactoryImpl.getInstance();
         addressFactory = AddressFactoryImpl.getInstance();
         studentFactory = StudentFactoryImpl.getInstance();
@@ -38,23 +35,23 @@ public class TestStudent
     public void testCreateStudent() throws Exception {
         Map<String,String> names = new HashMap<String, String>();
         Map<String,String> addressDetails = new HashMap<String, String>();
+        Map<String,String> details = new HashMap<String, String>();
+        details.put("Male","tMakhubele@gmai.com");
         names.put("Themba","Makhubele");
-        String gender = "Male";
         addressDetails.put("Limpopo","Elim");
         validate = ValidationFactory.getAverage(200,6);
-        System.out.println(validate);
 
         address = addressFactory.createAddress(addressDetails, "Denver", "0826");
-        contacts = contactsFactory.createContacts("Thembani@gem.com", "0821147");
-        personDetails = personDetailsFactory.createPersonDetails(names,gender,new Date());
-        student = studentFactory.createStudent("3rd year",personDetails, contacts,address,payments,room,validate);
+        personDetails = personDetailsFactory.createPersonDetails(names,details,new Date());
+        student = studentFactory.createStudent(validate,personDetails,address,payments,room);
 
-        Assert.assertEquals(student.getLevelOfStudy(),"3rd year");
+        Assert.assertEquals(address.getStreet(),"Denver");
     }
 
     @Test
     public void testUpdateStudent() throws Exception {
-        Student updateStudent = new Student.Builder().copy(student).levelOfStudy("B-Tech").build();
-        Assert.assertEquals(updateStudent.getLevelOfStudy(),"B-Tech");
+        Address updateAddress = new Address.Builder().copy(address).street("Dorset").build();
+        Student updateStudent = new Student.Builder().copy(student).address(updateAddress).build();
+        Assert.assertEquals(updateAddress.getStreet(),"Dorset");
     }
 }

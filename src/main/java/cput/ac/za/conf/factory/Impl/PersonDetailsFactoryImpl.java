@@ -21,13 +21,14 @@ public class PersonDetailsFactoryImpl implements PersonDetailsFactory
         return personDetailsFactory;
     }
     @Override
-    public PersonDetails createPersonDetails(Map<String,String> names,String gender,
+    public PersonDetails createPersonDetails(Map<String,String> names,Map<String,String> details,
                                                     Date dob)
     {
         PersonDetails personDetails = new PersonDetails.Builder()
                 .fName(names.get("fName"))
                 .lName(names.get("lName"))
-                .gender(gender)
+                .gender(details.get("Gender"))
+                .email(details.get("email"))
                 .dob(dob)
                 .build();
         return personDetails;

@@ -12,6 +12,8 @@ public class PersonDetails implements Serializable
     private String fName;
     private String gender;
     private Date dob;
+    private String email;
+    private String cellNumber;
 
 
 
@@ -22,6 +24,8 @@ public class PersonDetails implements Serializable
         fName = builder.fName;
         gender = builder.gender;
         dob = builder.dob;
+        email=builder.email;
+        cellNumber = builder.cellNumber;
     }
 
     public String getlName() {
@@ -33,7 +37,12 @@ public class PersonDetails implements Serializable
     public String getGender() {
         return gender;
     }
-
+    public String getEmail() {
+        return email;
+    }
+    public String getCellNumber() {
+        return cellNumber;
+    }
 
     public Date getDob() {
         return dob;
@@ -44,7 +53,17 @@ public class PersonDetails implements Serializable
         private String fName;
         private String gender;
         private Date dob;
+        private String email;
+        private String cellNumber;
 
+        public Builder email(String email) {
+            this.email = email;
+            return this;
+        }
+        public Builder cellNumber(String value){
+            this.cellNumber=value;
+            return this;
+        }
         public Builder lName(String value){
             this.lName = value;
             return this;
@@ -68,6 +87,8 @@ public class PersonDetails implements Serializable
             this.lName = value.getlName();
             this.gender = value.getGender();
             this.dob = value.getDob();
+            this.cellNumber=value.getCellNumber();
+            this.email=value.getEmail();
             return this;
         }
         public PersonDetails build(){
