@@ -1,6 +1,8 @@
 package cput.ac.za.factories;
 
 import cput.ac.za.conf.factory.UserTypeFactory;
+import cput.ac.za.domain.User;
+import org.junit.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -19,6 +21,7 @@ public class TestUsers
     @Test
     public void testUserType() throws Exception
     {
-        userTypeFactory.userType("Administrator");
+        User userType = userTypeFactory.userType("Administrator");
+        Assert.assertNotNull(userType);
     }
 }
